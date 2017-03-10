@@ -51,4 +51,15 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/button_recyclerView"
         android:layout_alignEnd="@+id/button_recyclerView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AsyncTask"
+        android:id="@+id/button_asynctask"
+        android:layout_below="@+id/button_googleMap"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/button_googleMap"
+        android:layout_alignEnd="@+id/button_googleMap" />
 </RelativeLayout>

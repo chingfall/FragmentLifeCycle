@@ -1,5 +1,6 @@
 package com.udnmobile.fragment.fragmentlifecycle;
 
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
