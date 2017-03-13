@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_fragment;
     private Button btn_googlemap;
     private Button btn_asynctask;
+    private Button btn_viewpager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void init(){
+    private void init() {
         //
         btn_fragment = (Button) findViewById(R.id.button_contactFragment);
         btn_recycleview = (Button) findViewById(R.id.button_recyclerView);
         btn_googlemap = (Button) findViewById(R.id.button_googleMap);
         btn_asynctask = (Button) findViewById(R.id.button_asynctask);
+        btn_viewpager = (Button) findViewById(R.id.button_viewpager);
 
         //button click listener
         btn_fragment.setOnClickListener(new View.OnClickListener() {
@@ -80,9 +82,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btn_viewpager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ViewPagerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    private void initHandler(){
+    private void initHandler() {
 
     }
 }

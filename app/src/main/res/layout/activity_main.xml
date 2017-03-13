@@ -62,4 +62,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/button_googleMap"
         android:layout_alignEnd="@+id/button_googleMap" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ViewPager"
+        android:id="@+id/button_viewpager"
+        android:layout_below="@+id/button_asynctask"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/button_asynctask" />
 </RelativeLayout>

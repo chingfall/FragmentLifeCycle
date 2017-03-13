@@ -56,7 +56,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".AsynctaskActivity"></activity>
+        <activity android:name=".AsynctaskActivity" />
+        <activity android:name=".ViewPagerActivity" />
     </application>
 
 </manifest>
