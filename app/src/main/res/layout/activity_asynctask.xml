@@ -10,7 +10,7 @@
     tools:context="com.udnmobile.fragment.fragmentlifecycle.AsynctaskActivity">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Asynctask1"
         android:id="@+id/btn_asynctask1"
@@ -18,28 +18,36 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Asynctask2"
         android:id="@+id/btn_asynctask2"
-        android:layout_alignBottom="@+id/btn_asynctask1"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/btn_asynctask1"
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Asynctask3"
         android:id="@+id/btn_asynctask3"
-        android:layout_alignBottom="@+id/btn_asynctask1"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/btn_asynctask2"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Asynctask4"
+        android:id="@+id/btn_asynctask4"
+        android:layout_alignTop="@+id/btn_asynctask3"
+        android:layout_alignStart="@+id/btn_asynctask2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/asynctaskTv"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/btn_asynctask2"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/UrlTv"
+        android:layout_below="@+id/btn_asynctask4"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

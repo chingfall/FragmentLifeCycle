@@ -22,12 +22,12 @@ public class ViewPagerActivity extends FragmentActivity {
 
     private static final String TAG = "ViewpagerActivity";
 
-    private static final int NUM_PAGES = 5;
-    //
+    //variable declaration
     private ViewPager mViewPager;
 
     private PagerAdapter mPagerAdapter;
 
+    //array to store pictures
     private List<Fragment> getFragment(){
         List<Fragment> fragments = new ArrayList<Fragment>();
         fragments.add(ViewPagerFragment.newInstance(1, android.R.drawable.ic_menu_camera));
@@ -103,6 +103,7 @@ public class ViewPagerActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+//    viewPager Adapter inner class
     private static class ViewPagerAdapter extends FragmentPagerAdapter {
 
         private List<Fragment> fragments;
@@ -122,6 +123,4 @@ public class ViewPagerActivity extends FragmentActivity {
             return fragments.size();
         }
     }
-
-
 }
