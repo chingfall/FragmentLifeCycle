@@ -46,22 +46,6 @@ public class ContactActivity extends AppCompatActivity {
 //        fragmentTransaction.replace(R.id.main_fragment, id);
     }
 
-//  初始化變數
-    private void init() {
-
-        //getApplication()用來共享全局變數,之後Activity和Service就能取得
-        //透過 Activity.getApplication() 或 Service.getApplication() 取得
-        myGlobalValue = (MyGlobalValue) getApplication();
-
-        fragmentManager = getSupportFragmentManager();
-        myGlobalValue.SetMainFragmentManager(fragmentManager);
-
-        //btn_bundle
-        Bundle bundle = getIntent().getExtras();
-        btn_value =bundle.getInt("btn_value");
-
-    }
-
 //  實作區(第二頁fragment layout)
     private void initTestFragment() {
 
@@ -79,6 +63,22 @@ public class ContactActivity extends AppCompatActivity {
 
         //如果程式需要立刻執行Fragment的切換，可以呼叫FragmentManager的executePendingTransactions()
 //        fragmentManager.executePendingTransactions();
+    }
+
+    //  初始化變數
+    private void init() {
+
+        //getApplication()用來共享全局變數,之後Activity和Service就能取得
+        //透過 Activity.getApplication() 或 Service.getApplication() 取得
+        myGlobalValue = (MyGlobalValue) getApplication();
+
+        fragmentManager = getSupportFragmentManager();
+        myGlobalValue.SetMainFragmentManager(fragmentManager);
+
+        //btn_bundle
+        Bundle bundle = getIntent().getExtras();
+        btn_value =bundle.getInt("btn_value");
+
     }
 
     private void initHandler() {

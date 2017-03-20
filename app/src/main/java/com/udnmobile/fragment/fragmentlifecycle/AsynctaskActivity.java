@@ -23,6 +23,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class AsynctaskActivity extends AppCompatActivity {
 
@@ -109,7 +110,6 @@ public class AsynctaskActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             info.setText(s);
-//            info.setText("DONE1");
             Log.i(TAG, "onPostExecute: ");
         }
     }
@@ -135,6 +135,7 @@ public class AsynctaskActivity extends AppCompatActivity {
                 //Instances must be configured with setDoOutput(true) if they include a request body.
                 urlConnection.setDoOutput(true);
 
+                //POST method cannot save data to caches, so it need to set usecaches metohod to false.
                 urlConnection.setUseCaches(false);
 //                urlConnection.setChunkedStreamingMode(0);
                 urlConnection.setRequestProperty("Content-Type", "application/json");
@@ -186,13 +187,25 @@ public class AsynctaskActivity extends AppCompatActivity {
 
             parseJSON(s);
 
-            //for(int i = 0; i < myGlobalValue.getLoadData(); i++){
+            info.setText(s);
+
+            //take the {key,value} from getloaddata method and return to store in hashmap.
             for (HashMap<String, String> a : myGlobalValue.getLoadData()) {
-                info.setText(a.toString());
+                //for (int i = 0; i < a.size(); i++) {
+
+                //store data to list array.
+                /*List<HashMap<String, String>> test = new ArrayList<>();
+                test.add(a);
+                String b = test.toString();*/
+
+                info.setText(a.get("app_uid").toString() + "\n" + a.get("exh_uid").toString() + "\n" + a.values());
+
+                //}
+                System.gc();
             }
+        }
 
         }
-    }
 
     class JobTask3 extends AsyncTask<String, Void, String> {
 
@@ -216,13 +229,13 @@ public class AsynctaskActivity extends AppCompatActivity {
     }
 
     //data store
-    private void parseJSON(String result){
+    private void parseJSON(String result) {
         ArrayList<HashMap<String, String>> loadData = new ArrayList<>();
 
         try {
             JSONArray jsonArray = new JSONArray(result);
 
-            for(int i = 0; i < jsonArray.length(); i++){
+            for (int i = 0; i < jsonArray.length(); i++) {
 
                 HashMap<String, String> loadDataMap = new HashMap<>();
 

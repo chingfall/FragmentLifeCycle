@@ -55,7 +55,7 @@ public class RecyclerViewFragment extends Fragment {
 
 //      1. get a reference to recyclerView
         recyclerView = (RecyclerView) getActivity().findViewById(R.id.recyclerView);
-//      2. set layoutManger
+//      2. set layoutManger(get a context<背景>)
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 //      3. create an adapter
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(itemsData);
