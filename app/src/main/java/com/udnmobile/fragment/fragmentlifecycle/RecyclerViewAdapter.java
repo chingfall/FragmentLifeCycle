@@ -1,6 +1,7 @@
 package com.udnmobile.fragment.fragmentlifecycle;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     //
     public RecyclerViewAdapter(ItemData[] itemsData) {
-
         this.itemsData = itemsData;
-
     }
 
     //
@@ -53,6 +52,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         if (holder instanceof NormalViewHolder) {
 
+            //Log.d(TAG, itemsData[position].getTitle());
             ((NormalViewHolder) holder).normalTv.setText(itemsData[position].getTitle());
             ((NormalViewHolder) holder).normalIv.setImageResource(itemsData[position].getImageUrl());
 

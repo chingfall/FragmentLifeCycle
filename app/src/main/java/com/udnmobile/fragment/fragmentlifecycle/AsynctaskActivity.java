@@ -25,6 +25,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okio.BufferedSink;
+
 public class AsynctaskActivity extends AppCompatActivity {
 
     private final String TAG = "Asynctask";
@@ -124,7 +134,7 @@ public class AsynctaskActivity extends AppCompatActivity {
             HttpURLConnection urlConnection = null;
 
             try {
-                URL url = new URL("http://drupal.udn-device-dept.net/Exhibition/api/getSpecificData.php");
+                URL url = new URL("http://drupal.udn-device-dept.net/video_plus/video_plus/api/getEpisodeList.php");
                 urlConnection = (HttpURLConnection) url.openConnection();
                 //setRequestMethod:set the method for the URL request.
                 urlConnection.setRequestMethod("POST");
@@ -143,8 +153,9 @@ public class AsynctaskActivity extends AppCompatActivity {
 
                 //Create JSONObject here
                 JSONObject usuario = new JSONObject();
-                usuario.put("app_uid", "automatic");
-                usuario.put("get_enroll", "yes");
+                usuario.put("pid", "1");
+                usuario.put("start_time", "2017-03-07 00:00:00");
+                usuario.put("end_time", "2017-03-10 23:59:59");
 
                 // Send POST output.
                 OutputStreamWriter out = new OutputStreamWriter(urlConnection.getOutputStream());
@@ -205,9 +216,13 @@ public class AsynctaskActivity extends AppCompatActivity {
             }
         }
 
-        }
+    }
 
     class JobTask3 extends AsyncTask<String, Void, String> {
+
+        private Request request;
+        private Response response;
+        private String result;
 
         @Override
         protected void onProgressUpdate(Void... values) {
@@ -217,8 +232,51 @@ public class AsynctaskActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
+            //set a new object.
+            final OkHttpClient client = new OkHttpClient();
 
-            return null;
+            /*//plus key/value parameters.
+            HttpUrl.Builder builder = HttpUrl.parse("http://www.google.com.tw/search?").newBuilder();
+            builder.addQueryParameter("q", "givemepass");
+            builder.addQueryParameter("oq", "givemepass");
+
+            //builder a request to class Request.
+            request = new Request.Builder().url(builder.toString()).build();*/
+
+//            ******************************JSONDATA WITH OKHTTP
+//            RequestBody formBody = new RequestBody.create();
+
+            //enqueue可以傳入一個Callback,透過Callback回來的方法, 可以處理成功或失敗。
+            request = new Request.Builder().url("http://drupal.udn-device-dept.net/video_plus/video_plus/api/getEpisodeList.php").build();
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    info.setText(e.getMessage());
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    result = response.body().string();
+
+                    //OkHttp會幫你產生一個Background Thread,因此回來的的response也是在background thread,如果你要更新TextView的畫面必須調整回Main Thread
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            info.setText(result);
+                        }
+                    });
+                }
+            });
+
+            /*//get this request through the newcall() from okhttpclient, and then do the request by execute().
+            try {
+                response = client.newCall(request).execute();
+                result = response.body().string();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }*/
+
+            return result;
         }
 
         @Override

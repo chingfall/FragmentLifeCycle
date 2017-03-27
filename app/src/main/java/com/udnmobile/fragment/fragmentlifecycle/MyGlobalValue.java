@@ -14,8 +14,6 @@ public class MyGlobalValue extends Application{
     private FragmentManager mainFragmentManager;
 
     //data
-    private String exh_uid;
-    private String app_uid;
 
     private ArrayList<HashMap<String, String>> loadData = new ArrayList<>();
 

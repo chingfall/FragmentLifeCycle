@@ -3,7 +3,7 @@ package com.udnmobile.fragment.fragmentlifecycle;
 public class ItemData {
 
     //
-    private  String title;
+    private String title;
     private int imageUrl;
 
     //
