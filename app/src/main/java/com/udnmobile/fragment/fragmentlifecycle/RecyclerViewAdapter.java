@@ -1,7 +1,6 @@
 package com.udnmobile.fragment.fragmentlifecycle;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +78,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     //
     @Override
     public int getItemCount() {
-//        return 10;
+        //return 10;
         return itemsData.length;
     }
 

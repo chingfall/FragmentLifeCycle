@@ -71,4 +71,34 @@
         android:layout_below="@+id/button_asynctask"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/button_asynctask" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bottom Sheet MENU"
+        android:id="@+id/button_bottomsheet"
+        android:layout_below="@+id/button_viewpager"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/button_viewpager" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DialogFragment"
+        android:id="@+id/button_dialogfragment"
+        android:layout_below="@+id/button_bottomsheet"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/button_bottomsheet" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:id="@+id/button_test"
+        android:layout_above="@+id/fragment"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

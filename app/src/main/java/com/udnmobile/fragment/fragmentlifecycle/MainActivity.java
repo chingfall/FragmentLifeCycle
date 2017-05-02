@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_googlemap;
     private Button btn_asynctask;
     private Button btn_viewpager;
+    private Button btn_bottomsheet;
+    private Button btn_dialogfragment;
+    private Button btn_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         btn_googlemap = (Button) findViewById(R.id.button_googleMap);
         btn_asynctask = (Button) findViewById(R.id.button_asynctask);
         btn_viewpager = (Button) findViewById(R.id.button_viewpager);
+        btn_bottomsheet = (Button) findViewById(R.id.button_bottomsheet);
+        btn_dialogfragment = (Button) findViewById(R.id.button_dialogfragment);
+        btn_test = (Button) findViewById(R.id.button_test);
 
         //button click listener
         btn_fragment.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +97,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btn_bottomsheet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BottomSheetActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_dialogfragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BottomDialogActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, OrientationActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void initHandler() {
