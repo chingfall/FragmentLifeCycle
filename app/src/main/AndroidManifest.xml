@@ -61,8 +61,8 @@
         <activity android:name=".BottomSheetActivity" />
         <activity android:name=".BottomDialogActivity" />
         <activity
-            android:name=".OrientationActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".DesignSupportLibraryActivity"
+            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
     </application>
 

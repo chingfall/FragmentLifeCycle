@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_viewpager;
     private Button btn_bottomsheet;
     private Button btn_dialogfragment;
-    private Button btn_test;
+    private Button btn_designSupportLibrary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btn_viewpager = (Button) findViewById(R.id.button_viewpager);
         btn_bottomsheet = (Button) findViewById(R.id.button_bottomsheet);
         btn_dialogfragment = (Button) findViewById(R.id.button_dialogfragment);
-        btn_test = (Button) findViewById(R.id.button_test);
+        btn_designSupportLibrary = (Button) findViewById(R.id.button_designSupportLibrary);
 
         //button click listener
         btn_fragment.setOnClickListener(new View.OnClickListener() {
@@ -114,10 +114,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_test.setOnClickListener(new View.OnClickListener() {
+        btn_designSupportLibrary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, OrientationActivity.class);
+                Intent intent = new Intent(MainActivity.this, DesignSupportLibraryActivity.class);
                 startActivity(intent);
             }
         });
